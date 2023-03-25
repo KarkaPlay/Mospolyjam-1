@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,20 +6,22 @@ using UnityEngine;
 [Serializable]
 class Dialogue
 {
-    public int dialogueID;
     private int _currentLineIndex = 0;
     [SerializeField] private List<Line> _dialogueLines;
+
+    public bool isStartQuestDialogue;
     
     [HideInInspector] public TextMeshProUGUI dialogueTextUI;
     [HideInInspector] public TextMeshProUGUI characterNameUI;
 
     public void StartDialogue()
     {
-        Debug.Log($"Начали диалог {dialogueID}");
+        PlayerController.Instance.SetDialogueUIActive(true);
+        PlayerController.Instance.pressEUI.gameObject.SetActive(false);
         _currentLineIndex = 0;
         NextLine();
     }
-
+    
     public void NextLine()
     {
         if (_currentLineIndex >= _dialogueLines.Count)
@@ -28,17 +29,17 @@ class Dialogue
             EndDialogue();
             return;
         }
-
+        
         var line = _dialogueLines[_currentLineIndex];
-        Debug.Log($"{line.character} говорит: {line.text}");
         _currentLineIndex++;
-
-        characterNameUI.text = line.character;
+        
+        characterNameUI.text = line.character.ToString();
         dialogueTextUI.text = line.text;
     }
 
     public void EndDialogue()
     {
-        Debug.Log("Диалог завершен");
+        _currentLineIndex = 0;
+        PlayerController.Instance.SetDialogueUIActive(false);
     }
 }
