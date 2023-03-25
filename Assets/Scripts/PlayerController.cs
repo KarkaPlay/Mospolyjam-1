@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -10,11 +9,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed;
     private float _moveHor, _moveVer;
     private bool canMove = true;
-    
-    private Rigidbody2D _rb;
-    
     private float tipFadeTime = 0.5f;
     private float tipDisplayTime = 2f;
+    private Rigidbody2D _rb;
 
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueTextUI;
@@ -58,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     public void ShowTip(string text)
     {
-        StopCoroutine(nameof(ShowTipCoroutine));
+        StopAllCoroutines();
         StartCoroutine(ShowTipCoroutine(text));
     }
 

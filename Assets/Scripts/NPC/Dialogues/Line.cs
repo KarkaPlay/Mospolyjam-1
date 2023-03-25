@@ -10,9 +10,18 @@ class Line
     [Serializable]
     public enum CharacterName
     {
-        Player, Nathan
+        Player, Nathan, MiniNathan
     }
-    
+
+    /*public override string ToString()
+    {
+        return character switch
+        {
+            CharacterName.МиниНатан => "Мини Натан",
+            _ => base.ToString()
+        };
+    }*/
+
     public CharacterName character;
     [TextArea] public string text;
 }

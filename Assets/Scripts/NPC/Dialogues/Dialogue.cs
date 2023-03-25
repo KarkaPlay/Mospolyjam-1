@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 class Dialogue
 {
-    private int _currentLineIndex = 0;
+    [SerializeField] private int _currentLineIndex = 0;
     [SerializeField] private List<Line> _dialogueLines;
 
     public bool isStartQuestDialogue;

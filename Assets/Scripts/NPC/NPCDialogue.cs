@@ -10,6 +10,8 @@ public class NPCDialogue : MonoBehaviour
     
     private void Start()
     {
+        _currentDialogue = _nullDialogue;
+        
         // Можно просто выключать панель перед началом игры, тогда этот код не понадобится
         PlayerController.Instance.SetDialogueUIActive(false);
     }
@@ -44,11 +46,7 @@ public class NPCDialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Игрок вышел из зоны триггера");
-            PlayerController.Instance.pressEUI.gameObject.SetActive(false);
-            _currentDialogue.EndDialogue();
-            _currentDialogue = _nullDialogue;
-            _dialogueIsStarted = false;
-            PlayerController.Instance.SetDialogueUIActive(false);
+            CloseDialogue();
         }
     }
 
@@ -57,6 +55,15 @@ public class NPCDialogue : MonoBehaviour
         _currentDialogue = _dialogues[index];
         _currentDialogue.characterNameUI = PlayerController.Instance.characterNameUI;
         _currentDialogue.dialogueTextUI = PlayerController.Instance.dialogueTextUI;
+    }
+
+    private void CloseDialogue()
+    {
+        PlayerController.Instance.pressEUI.gameObject.SetActive(false);
+        _currentDialogue.EndDialogue();
+        _currentDialogue = _nullDialogue;
+        _dialogueIsStarted = false;
+        PlayerController.Instance.SetDialogueUIActive(false);
     }
     
     private void Update()
