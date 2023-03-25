@@ -6,12 +6,14 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance { get; private set; }
     
-    [SerializeField] private float _speed;
-    private float _moveHor, _moveVer;
+
     private bool canMove = true;
     private float tipFadeTime = 0.5f;
     private float tipDisplayTime = 2f;
-    private Rigidbody2D _rb;
+    public float moveSpeed = 5f;
+    public Rigidbody2D rb;
+    public Animator animator;
+    Vector2 movement;
 
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueTextUI;
@@ -30,27 +32,33 @@ public class PlayerController : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         
-        _rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
     
     private void Update()
     {
         if (canMove)
         {
-            _moveHor = Input.GetAxis("Horizontal");
-            _moveVer = Input.GetAxis("Vertical");
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
 
-            var movement = new Vector2(_moveHor, _moveVer);
-            _rb.velocity = movement * _speed;
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+            animator.SetFloat("Speed", movement.sqrMagnitude);
         }
     }
-    
+
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
     public void SetDialogueUIActive(bool setActive)
     {
         dialoguePanel.SetActive(setActive);
         canMove = !setActive;
         if (setActive)
-            _rb.velocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
     }
 
     public void ShowTip(string text)
