@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class Gorshok : QuestObject
@@ -15,34 +16,52 @@ public class Gorshok : QuestObject
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            switch (_quest.GetQuestState())
+            switch (SceneManager.GetActiveScene().name)
             {
-                case NPCQuest.QuestState.NotStarted:
-                    // Запустится диалог
+                case "Level1":
+                    Level1Behaviour();
                     break;
-                case NPCQuest.QuestState.InProcess:
-                    if (hasLeika && leikaHasWater)
-                    {
-                        PlayerController.Instance.ShowTip("Поливаем...", 2f);
-                        
-                        // TODO: Спрайт обычного окна и горшка меняются на спрайт разбитого окна, в которое влетело выросшее щупальце.
-                        _quest.CompleteQuest();
-                        break;
-                    }
-                    if (!GetComponent<NPCDialogue>().dialogueIsStarted)
-                    {
-                        if (hasLeika)
-                            PlayerController.Instance.ShowTip("Теперь нужно налить воды в лейку", 4f);
-                        else
-                            PlayerController.Instance.ShowTip("Ну щупальце, да", 2f);
-                    }
+                case "Level3":
+                    Level3Behaviour();
                     break;
-                case NPCQuest.QuestState.IsDone:
-                    // Запустится диалог
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
         }
+    }
+
+    private void Level1Behaviour()
+    {
+        switch (_quest.GetQuestState())
+        {
+            case NPCQuest.QuestState.NotStarted:
+                // Запустится диалог
+                break;
+            case NPCQuest.QuestState.InProcess:
+                if (hasLeika && leikaHasWater)
+                {
+                    PlayerController.Instance.ShowTip("Поливаем...", 2f);
+                        
+                    // TODO: Спрайт обычного окна и горшка меняются на спрайт разбитого окна, в которое влетело выросшее щупальце.
+                    _quest.CompleteQuest();
+                    break;
+                }
+                if (!GetComponent<NPCDialogue>().dialogueIsStarted)
+                {
+                    if (hasLeika)
+                        PlayerController.Instance.ShowTip("Теперь нужно налить воды в лейку", 4f);
+                    else
+                        PlayerController.Instance.ShowTip("Ну щупальце, да", 2f);
+                }
+                break;
+            case NPCQuest.QuestState.IsDone:
+                // Запустится диалог
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private void Level3Behaviour()
+    {
+        PlayerController.Instance.ShowTip("Опять это щупальце", 2f);
     }
 }
