@@ -12,10 +12,10 @@ public class CollectLeika : QuestObject
             switch (_quest.GetQuestState())
             {
                 case NPCQuest.QuestState.NotStarted:
-                    PlayerController.Instance.ShowTip("Хм, лейка. Интересно, чья она");
+                    PlayerController.Instance.ShowTip("Хм, лейка. Интересно, чья она", 2);
                     break;
                 case NPCQuest.QuestState.InProcess:
-                    PlayerController.Instance.ShowTip("Отлично, вот и она");
+                    PlayerController.Instance.ShowTip("Отлично, вот и она", 2);
                     _quest.CompleteQuest();
                     Destroy(gameObject);
                     break;

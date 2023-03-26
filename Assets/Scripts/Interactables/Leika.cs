@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Leika : Interactable
+public class Leika : QuestObject
 {
     void Update()
     {
@@ -8,7 +8,7 @@ public class Leika : Interactable
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            // Your interaction here
+            PlayerController.Instance.ShowTip("Лейка. Никогда не умел ухаживать за растениями, они умирали через неделю-две", 4f);
         }
     }
 }

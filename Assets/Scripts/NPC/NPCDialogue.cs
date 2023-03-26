@@ -14,6 +14,13 @@ public class NPCDialogue : MonoBehaviour
         
         // Можно просто выключать панель перед началом игры, тогда этот код не понадобится
         PlayerController.Instance.SetDialogueUIActive(false);
+        
+        // Запуск диалога при старте сцены
+        if (gameObject.name == "StartDialogue")
+        {
+            SetCurrentDialogue(0);
+            _currentDialogue.StartDialogue();
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D other)

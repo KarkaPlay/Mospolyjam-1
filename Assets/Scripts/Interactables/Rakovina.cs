@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Rakovina : Interactable
+public class Rakovina : QuestObject
 {
     void Update()
     {
@@ -8,7 +8,7 @@ public class Rakovina : Interactable
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            // Your interaction here
+            PlayerController.Instance.ShowTip("О, хотя бы вода есть. Правда не понимаю, почему она такая ледяная", 4f);
         }
     }
 }

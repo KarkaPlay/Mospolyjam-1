@@ -9,7 +9,7 @@ class Dialogue
     [SerializeField] private int _currentLineIndex = 0;
     [SerializeField] private List<Line> _dialogueLines;
 
-    public bool isStartQuestDialogue;
+    public bool isStartQuestDialogue = false;
     
     [HideInInspector] public TextMeshProUGUI dialogueTextUI;
     [HideInInspector] public TextMeshProUGUI characterNameUI;

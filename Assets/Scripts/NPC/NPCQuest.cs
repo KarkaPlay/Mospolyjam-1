@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCQuest : MonoBehaviour
@@ -8,13 +9,16 @@ public class NPCQuest : MonoBehaviour
         NotStarted = 0, InProcess = 1, IsDone = 2
     }
     
-    public QuestObject questObject;
+    public List<QuestObject> questObjects;
     
     [SerializeField] private QuestState _questState = QuestState.NotStarted;
 
     private void Awake()
     {
-        questObject.SetQuest(this);
+        foreach (var questObject in questObjects)
+        {
+            questObject.SetQuest(this);
+        }
     }
 
     public QuestState GetQuestState()

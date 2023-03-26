@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     private bool canMove = true;
     private float tipFadeTime = 0.5f;
-    private float tipDisplayTime = 2f;
+    //private float tipDisplayTime = 2f;
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Animator animator;
@@ -61,13 +61,13 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
     }
 
-    public void ShowTip(string text)
+    public void ShowTip(string text, float tipDisplayTime)
     {
         StopAllCoroutines();
-        StartCoroutine(ShowTipCoroutine(text));
+        StartCoroutine(ShowTipCoroutine(text, tipDisplayTime));
     }
 
-    private IEnumerator ShowTipCoroutine(string text)
+    private IEnumerator ShowTipCoroutine(string text, float tipDisplayTime)
     {
         tipUI.text = text;
         tipUI.color = new Color(tipUI.color.r, tipUI.color.g, tipUI.color.b, 0f);

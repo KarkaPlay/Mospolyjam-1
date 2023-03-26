@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class Gorshok : Interactable
+public class Gorshok : QuestObject
 {
     void Update()
     {
@@ -8,7 +10,7 @@ public class Gorshok : Interactable
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            // Your interaction here
+            
         }
     }
 }
