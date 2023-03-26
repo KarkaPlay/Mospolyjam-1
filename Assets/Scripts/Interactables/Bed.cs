@@ -5,24 +5,29 @@ public class Bed : Interactable
     public GameObject cutscenePrefab;
     public Sprite whiteBed;
     
-    private bool firstTime = true;
+    private int interactionCount = 0;
     void Update()
     {
         if (!playerIsNear) return;
+        if (FindObjectOfType<CutScene>()) return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (firstTime)
+            switch (interactionCount)
             {
-                PlayerController.Instance.StartCutscene(cutscenePrefab);
-                GetComponent<SpriteRenderer>().sprite = whiteBed;
-                firstTime = false;
+                case 0:
+                    PlayerController.Instance.StartCutscene(cutscenePrefab);
+                    break;
+                case 1:
+                    GetComponent<SpriteRenderer>().sprite = whiteBed;
+                    PlayerController.Instance.ShowTip("Вот так, теперь в окно", 2f);
+                    break;
+                default:
+                    PlayerController.Instance.ShowTip("Наволочку взял, теперь в окно", 3f);
+                    break;
             }
 
-            else if (!FindObjectOfType<CutScene>())
-            {
-                PlayerController.Instance.ShowTip("Наволочку взял, теперь в окно", 3f);
-            }
+            interactionCount++;
         }
     }
 }
