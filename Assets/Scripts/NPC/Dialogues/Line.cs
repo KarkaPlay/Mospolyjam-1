@@ -10,7 +10,7 @@ class Line
     [Serializable]
     public enum CharacterName
     {
-        Player, Nathan, MiniNathan
+        Player, Nathan, MiniNathan, Щупальце
     }
 
     /*public override string ToString()

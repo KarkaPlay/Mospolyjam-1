@@ -8,9 +8,10 @@ class Dialogue
 {
     [SerializeField] private int _currentLineIndex = 0;
     [SerializeField] private List<Line> _dialogueLines;
+    public bool currentLineIsTheLast = false;
 
     public bool isStartQuestDialogue = false;
-    
+
     [HideInInspector] public TextMeshProUGUI dialogueTextUI;
     [HideInInspector] public TextMeshProUGUI characterNameUI;
 
@@ -19,6 +20,7 @@ class Dialogue
         PlayerController.Instance.SetDialogueUIActive(true);
         PlayerController.Instance.pressEUI.gameObject.SetActive(false);
         _currentLineIndex = 0;
+        currentLineIsTheLast = false;
         NextLine();
     }
     
@@ -26,6 +28,7 @@ class Dialogue
     {
         if (_currentLineIndex >= _dialogueLines.Count)
         {
+            currentLineIsTheLast = true;
             EndDialogue();
             return;
         }

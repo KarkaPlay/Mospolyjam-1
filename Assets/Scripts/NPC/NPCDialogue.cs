@@ -1,26 +1,30 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class NPCDialogue : MonoBehaviour
 {
     [SerializeField] private List<Dialogue> _dialogues;
-    [SerializeField] private Dialogue _currentDialogue;
+    private Dialogue _currentDialogue;
     private readonly Dialogue _nullDialogue = new Dialogue();
-    private bool _dialogueIsStarted = false;
+    private bool playerIsNear = false;
+    
+    public bool dialogueIsStarted = false;
     
     private void Start()
     {
         _currentDialogue = _nullDialogue;
         
         // Можно просто выключать панель перед началом игры, тогда этот код не понадобится
-        PlayerController.Instance.SetDialogueUIActive(false);
+        //PlayerController.Instance.SetDialogueUIActive(false);
         
         // Запуск диалога при старте сцены
-        if (gameObject.name == "StartDialogue")
+        /*if (gameObject.name == "StartDialogue")
         {
+            playerIsNear = true;
             SetCurrentDialogue(0);
             _currentDialogue.StartDialogue();
-        }
+        }*/
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -43,6 +47,7 @@ public class NPCDialogue : MonoBehaviour
                     break;
             }*/
 
+            playerIsNear = true;
             PlayerController.Instance.pressEUI.gameObject.SetActive(true);
             SetCurrentDialogue((int)GetComponent<NPCQuest>().GetQuestState());
         }
@@ -53,6 +58,7 @@ public class NPCDialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Игрок вышел из зоны триггера");
+            playerIsNear = false;
             CloseDialogue();
         }
     }
@@ -69,21 +75,23 @@ public class NPCDialogue : MonoBehaviour
         PlayerController.Instance.pressEUI.gameObject.SetActive(false);
         _currentDialogue.EndDialogue();
         _currentDialogue = _nullDialogue;
-        _dialogueIsStarted = false;
+        dialogueIsStarted = false;
         PlayerController.Instance.SetDialogueUIActive(false);
     }
     
     private void Update()
     {
+        if (!playerIsNear) return;
+        
         if (_currentDialogue != _nullDialogue && Input.GetKeyDown(KeyCode.E))
         {
-            if (_dialogueIsStarted)
+            if (dialogueIsStarted)
             {
                 _currentDialogue.NextLine();
             }
             else
             {
-                _dialogueIsStarted = true;
+                dialogueIsStarted = true;
                 _currentDialogue.StartDialogue();
                 
                 if (_currentDialogue.isStartQuestDialogue)
