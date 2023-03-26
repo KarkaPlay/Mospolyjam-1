@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     Vector2 movement;
 
+    [FormerlySerializedAs("cutScenePrefab")] public GameObject cutscenePrefab;
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueTextUI;
     public TextMeshProUGUI characterNameUI;
@@ -34,7 +37,15 @@ public class PlayerController : MonoBehaviour
         
         rb = GetComponent<Rigidbody2D>();
     }
-    
+
+    private void Start()
+    {
+        if (cutscenePrefab)
+        {
+            StartCutscene(cutscenePrefab);
+        }
+    }
+
     private void Update()
     {
         if (canMove)
@@ -59,6 +70,12 @@ public class PlayerController : MonoBehaviour
         canMove = !setActive;
         if (setActive)
             rb.velocity = Vector2.zero;
+    }
+
+    public void StartCutscene(GameObject _cutscenePrefab)
+    {
+        Instantiate(_cutscenePrefab);
+        cutscenePrefab = null;
     }
 
     public void ShowTip(string text, float tipDisplayTime)
