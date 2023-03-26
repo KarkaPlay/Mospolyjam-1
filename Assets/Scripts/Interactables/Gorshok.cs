@@ -9,6 +9,7 @@ public class Gorshok : QuestObject
     public bool leikaHasWater;
 
     public Sprite windowSprite;
+    public Window window;
 
     void Update()
     {
@@ -39,9 +40,15 @@ public class Gorshok : QuestObject
                 if (hasLeika && leikaHasWater)
                 {
                     PlayerController.Instance.ShowTip("Поливаем...", 2f);
-                        
-                    // TODO: Спрайт обычного окна и горшка меняются на спрайт разбитого окна, в которое влетело выросшее щупальце.
+                    window.gameObject.GetComponent<SpriteRenderer>().sprite = windowSprite;
+                    window.questIsDone = true;
+                    GetComponent<SpriteRenderer>().enabled = false;
+                    /*foreach (var coll in GetComponents<Collider2D>())
+                    {
+                        coll.enabled = false;
+                    }*/
                     _quest.CompleteQuest();
+                    //Destroy(gameObject);
                     break;
                 }
                 if (!GetComponent<NPCDialogue>().dialogueIsStarted)

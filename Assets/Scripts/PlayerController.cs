@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
@@ -11,12 +13,12 @@ public class PlayerController : MonoBehaviour
 
     private bool canMove = true;
     private float tipFadeTime = 0.5f;
-    //private float tipDisplayTime = 2f;
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Animator animator;
-    Vector2 movement;
+    private Vector2 movement;
 
+    public List<GameObject> allCutscenePrefabs;
     [FormerlySerializedAs("cutScenePrefab")] public GameObject cutscenePrefab;
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueTextUI;
@@ -37,12 +39,46 @@ public class PlayerController : MonoBehaviour
         
         rb = GetComponent<Rigidbody2D>();
     }
+    
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
     private void Start()
     {
+        dialoguePanel = CanvasSingleton.Instance.gameObject.transform.GetChild(0).gameObject;
+        characterNameUI = dialoguePanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        dialogueTextUI = characterNameUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        pressEUI = CanvasSingleton.Instance.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        tipUI = CanvasSingleton.Instance.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
+
         if (cutscenePrefab)
         {
             StartCutscene(cutscenePrefab);
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        transform.position = new Vector3(-50, 12, 0);
+        switch(scene.name)
+        {
+            case "Level1":
+                StartCutscene(allCutscenePrefabs[0]);
+                break;
+            case "Level2":
+                break;
+            case "Level3":
+                StartCutscene(allCutscenePrefabs[2]);
+                break;
+            case "Level4":
+                break;
+            case "Level5":
+                StartCutscene(allCutscenePrefabs[4]);
+                break;
+            case "Level6":
+                break;
         }
     }
 

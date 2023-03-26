@@ -3,6 +3,8 @@ using UnityEngine;
 public class Lenta : Interactable
 {
     public GameObject cutscenePrefab;
+    public Window window;
+    
     private bool firstTime = true;
     void Update()
     {
@@ -17,7 +19,10 @@ public class Lenta : Interactable
                 firstTime = false;
             }
             else
+            {
+                window.questIsDone = true;
                 Destroy(gameObject);
+            }
         }
     }
 }

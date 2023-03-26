@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 110372071}
   - component: {fileID: 110372070}
   - component: {fileID: 110372068}
+  - component: {fileID: 110372072}
   m_Layer: 0
   m_Name: Okno
   m_TagString: Untagged
@@ -243,6 +244,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &110372072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110372067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efb18f39fdba70498c51ba220924e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questIsDone: 0
+  openCutscene: {fileID: 0}
 --- !u!1001 &218465771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254,6 +269,10 @@ PrefabInstance:
     - target: {fileID: 3935411165714454146, guid: 2920fca51c8445a4082fbd5517ba91fe, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935411165714454146, guid: 2920fca51c8445a4082fbd5517ba91fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6785556579588493340, guid: 2920fca51c8445a4082fbd5517ba91fe, type: 3}
       propertyPath: m_Pivot.x
@@ -408,6 +427,10 @@ PrefabInstance:
     - target: {fileID: 263188027745523665, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
       propertyPath: m_LightVolumeIntensityEnabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 517794692399489967, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 902415796554774683, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
       propertyPath: m_Sprite
@@ -1245,6 +1268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutscenePrefab: {fileID: 1928191224088375632, guid: 1811d822d2962af41800027a80832c7d, type: 3}
+  window: {fileID: 110372072}
 --- !u!1 &693358587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,6 +1687,7 @@ MonoBehaviour:
   hasLeika: 0
   leikaHasWater: 0
   windowSprite: {fileID: 0}
+  window: {fileID: 0}
 --- !u!1001 &1563075928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1774,6 +1799,10 @@ PrefabInstance:
     - target: {fileID: 7284470745632347377, guid: 19ba662793a8937428d760f28b80343f, type: 3}
       propertyPath: m_Name
       value: Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284470745632347377, guid: 19ba662793a8937428d760f28b80343f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7470848663717421319, guid: 19ba662793a8937428d760f28b80343f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2173,10 +2202,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2474453551388071934, guid: ee7bb7c76689c1f4c840ba283a4f456f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2869828870428274876, guid: ee7bb7c76689c1f4c840ba283a4f456f, type: 3}
       propertyPath: m_Name
       value: Scene Light
@@ -2241,6 +2266,10 @@ PrefabInstance:
     - target: {fileID: 1036530684923459321, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036530684923459321, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1036530684923459321, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: m_TagString
@@ -2328,38 +2357,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8933330029172199793, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9071822869274238438, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9071822869274238438, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
-      propertyPath: m_BlendStyleIndex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9071822869274238438, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
-      propertyPath: m_NormalMapQuality
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9071822869274238438, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
-      propertyPath: m_OverlapOperation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9071822869274238438, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
-      propertyPath: m_PointLightInnerRadius
-      value: 18.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9071822869274238438, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
-      propertyPath: m_PointLightOuterRadius
-      value: 37.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 9071822869274238438, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
-      propertyPath: m_ShadowIntensityEnabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9071822869274238438, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
-      propertyPath: m_LightVolumeIntensityEnabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
