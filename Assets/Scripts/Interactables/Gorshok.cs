@@ -8,8 +8,7 @@ public class Gorshok : QuestObject
     public bool leikaHasWater;
 
     public Sprite windowSprite;
-    public GameObject cutscenePrefab;
-    
+
     void Update()
     {
         if (!playerIsNear) return;

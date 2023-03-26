@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 110372071}
   - component: {fileID: 110372070}
-  - component: {fileID: 110372069}
   - component: {fileID: 110372068}
   m_Layer: 0
   m_Name: Okno
@@ -172,41 +171,6 @@ CircleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 9.2
---- !u!58 &110372069
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 110372067}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -252,7 +216,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: f47ec80959f835f4bb0a0cc510b0052a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -277,7 +241,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &218465771
 PrefabInstance:
@@ -583,7 +547,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033456823
 GameObject:
@@ -871,11 +835,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8933330029172199793, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
   m_PrefabInstance: {fileID: 3057344064049323064}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &1473793658 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 3013469286254358386, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
-  m_PrefabInstance: {fileID: 3057344064049323064}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1540444663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1010,6 @@ MonoBehaviour:
   hasLeika: 0
   leikaHasWater: 0
   windowSprite: {fileID: 0}
-  cutscenePrefab: {fileID: 6639700209289836516, guid: 857d8c12cd5d3b243acd1f617600e2ad, type: 3}
 --- !u!114 &1540444669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,11 +1184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6836260999277139978, guid: 19ba662793a8937428d760f28b80343f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 6836260999277139978, guid: 19ba662793a8937428d760f28b80343f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.5
+      value: 13.5
       objectReference: {fileID: 0}
     - target: {fileID: 6884559294575555542, guid: 19ba662793a8937428d760f28b80343f, type: 3}
       propertyPath: m_TrackedObjectOffset.y
@@ -1242,11 +1200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7470848663717421319, guid: 19ba662793a8937428d760f28b80343f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 7470848663717421319, guid: 19ba662793a8937428d760f28b80343f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.5
+      value: 13.499999
       objectReference: {fileID: 0}
     - target: {fileID: 7470848663717421319, guid: 19ba662793a8937428d760f28b80343f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1760,11 +1718,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _quest: {fileID: 0}
---- !u!50 &2097881085 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 3013469286254358386, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
-  m_PrefabInstance: {fileID: 3057344064049323064}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3057344064049323064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1784,11 +1737,7 @@ PrefabInstance:
     - target: {fileID: 1459394936576260737, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: rb
       value: 
-      objectReference: {fileID: 1473793658}
-    - target: {fileID: 1459394936576260737, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 2097881085}
+      objectReference: {fileID: 0}
     - target: {fileID: 1459394936576260737, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: tipUI
       value: 
@@ -1831,11 +1780,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8933330029172199793, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30
+      value: -31
       objectReference: {fileID: 0}
     - target: {fileID: 8933330029172199793, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8933330029172199793, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: m_LocalPosition.z
