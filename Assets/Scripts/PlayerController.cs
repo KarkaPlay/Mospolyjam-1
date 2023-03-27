@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
             case "Level5":
                 StartCutscene(allCutscenePrefabs[4]);
                 break;
-            case "Level6":
+            case "Ending":
                 break;
         }
     }
