@@ -80,6 +80,11 @@ public class PlayerController : MonoBehaviour
                 StartCutscene(allCutscenePrefabs[4]);
                 break;
             case "Ending":
+                SetDialogueUIActive(false);
+                StopAllCoroutines();
+                Destroy(CanvasSingleton.Instance.gameObject);
+                Destroy(CameraSingleton.Instance.gameObject);
+                Destroy(gameObject);
                 break;
         }
     }

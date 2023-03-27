@@ -25,15 +25,7 @@ public class Window : Interactable
         {
             if (questIsDone)
             {
-                if (SceneManager.GetActiveScene().name != "Level6")
-                {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                }
-                else
-                {
-                    // Запустить финальные титры (может их на отдельную сцену, хз)
-                    Application.Quit();
-                }
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else if (exitCutscene)
             {
