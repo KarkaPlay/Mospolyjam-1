@@ -34,7 +34,7 @@ public class Window : Interactable
             }
             else
             {
-                PlayerController.Instance.ShowTip("Мне сюда пока рано", 2);
+                PlayerController.Instance.ShowTip("Хорошо, я могу сбежать через него. Но, если я правильно помню, тут довольно высоковато...", 4);
             }
         }
     }
