@@ -13,7 +13,7 @@ public class Ending : MonoBehaviour
 
     IEnumerator WaitForLevel()
     {
-        yield return new WaitForSeconds(19);
+        yield return new WaitForSeconds(30);
         SceneManager.LoadScene(0);
     }
 }
