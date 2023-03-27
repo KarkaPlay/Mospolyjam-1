@@ -6,6 +6,7 @@ public class Window : Interactable
 {
     public bool questIsDone = false;
     public GameObject openCutscene;
+    public GameObject exitCutscene;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class Window : Interactable
     void Update()
     {
         if (!playerIsNear) return;
+        if (FindObjectOfType<CutScene>()) return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -32,6 +34,11 @@ public class Window : Interactable
                     // Запустить финальные титры (может их на отдельную сцену, хз)
                     Application.Quit();
                 }
+            }
+            else if (exitCutscene)
+            {
+                PlayerController.Instance.StartCutscene(exitCutscene);
+                questIsDone = true;
             }
             else
             {

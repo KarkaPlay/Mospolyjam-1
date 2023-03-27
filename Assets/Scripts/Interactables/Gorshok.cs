@@ -14,6 +14,7 @@ public class Gorshok : QuestObject
     void Update()
     {
         if (!playerIsNear) return;
+        if (FindObjectOfType<CutScene>()) return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -22,8 +23,8 @@ public class Gorshok : QuestObject
                 case "Level1":
                     Level1Behaviour();
                     break;
-                case "Level3":
-                    Level3Behaviour();
+                default:
+                    PlayerController.Instance.ShowTip("Опять это щупальце", 2f);
                     break;
             }
         }
@@ -43,12 +44,7 @@ public class Gorshok : QuestObject
                     window.gameObject.GetComponent<SpriteRenderer>().sprite = windowSprite;
                     window.questIsDone = true;
                     GetComponent<SpriteRenderer>().enabled = false;
-                    /*foreach (var coll in GetComponents<Collider2D>())
-                    {
-                        coll.enabled = false;
-                    }*/
                     _quest.CompleteQuest();
-                    //Destroy(gameObject);
                     break;
                 }
                 if (!GetComponent<NPCDialogue>().dialogueIsStarted)
@@ -65,10 +61,5 @@ public class Gorshok : QuestObject
             default:
                 throw new ArgumentOutOfRangeException();
         }
-    }
-
-    private void Level3Behaviour()
-    {
-        PlayerController.Instance.ShowTip("Опять это щупальце", 2f);
     }
 }

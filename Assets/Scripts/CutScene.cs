@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CutScene : MonoBehaviour
 {
-    [SerializeField] private Dialogue _dialogue;
+    [SerializeField] public Dialogue _dialogue;
     private bool _dialogueIsStarted = false;
     
     private void Start()

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 
 [Serializable]
-class Dialogue
+public class Dialogue
 {
     [SerializeField] private int _currentLineIndex = 0;
     [SerializeField] private List<Line> _dialogueLines;

@@ -296,30 +296,19 @@ PrefabInstance:
     - {fileID: 3497443067780838450, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8643812854765447966, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 229639245}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
---- !u!1 &229639244 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8643812854765447966, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
+--- !u!114 &410486318 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7247673432578085585, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
   m_PrefabInstance: {fileID: 229639243}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &229639245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229639244}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7efb18f39fdba70498c51ba220924e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questIsDone: 0
-  openCutscene: {fileID: 0}
 --- !u!1 &984737713
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +815,7 @@ MonoBehaviour:
   hasLeika: 0
   leikaHasWater: 0
   windowSprite: {fileID: 21300000, guid: f0de83490266662419c15777bb91e60c, type: 3}
-  window: {fileID: 229639245}
+  window: {fileID: 410486318}
 --- !u!114 &1540444669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,6 +1561,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1459394936576260737, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
+      propertyPath: moveSpeed
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459394936576260737, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 0}
@@ -1594,7 +1587,7 @@ PrefabInstance:
     - target: {fileID: 1459394936576260737, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: allCutscenePrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1928191224088375632, guid: 397a5e8f0b9103549945005aeeb3542d, type: 3}
     - target: {fileID: 1459394936576260737, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: allCutscenePrefabs.Array.data[2]
       value: 
@@ -1602,7 +1595,7 @@ PrefabInstance:
     - target: {fileID: 1459394936576260737, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: allCutscenePrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1928191224088375632, guid: 7590876a7f8854b498f9a7aa912716fa, type: 3}
     - target: {fileID: 1459394936576260737, guid: 685983245b49a85459ece5f5b0e21d2f, type: 3}
       propertyPath: allCutscenePrefabs.Array.data[4]
       value: 

@@ -67,12 +67,14 @@ public class PlayerController : MonoBehaviour
             case "Level1":
                 StartCutscene(allCutscenePrefabs[0]);
                 break;
-            case "Level2":
+            case "Level2" or "Level2_NEW":
+                StartCutscene(allCutscenePrefabs[1]);
                 break;
             case "Level3":
                 StartCutscene(allCutscenePrefabs[2]);
                 break;
             case "Level4":
+                StartCutscene(allCutscenePrefabs[3]);
                 break;
             case "Level5":
                 StartCutscene(allCutscenePrefabs[4]);
