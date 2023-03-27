@@ -20,7 +20,7 @@ public class Lenta : Interactable
             }
             else
             {
-                window.questIsDone = true;
+                window.CompleteQuest();
                 Destroy(gameObject);
             }
         }

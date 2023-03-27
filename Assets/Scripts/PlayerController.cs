@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     private bool canMove = true;
     private float tipFadeTime = 0.5f;
     public float moveSpeed = 5f;
+    public AudioSource audioSource;
+    public AudioSource pickupAudioSource;
+    public AudioClip pickupSound;
+    public AudioClip walkSound;
     public Rigidbody2D rb;
     public Animator animator;
     private Vector2 movement;
@@ -95,6 +99,20 @@ public class PlayerController : MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
+            
+            if (movement.sqrMagnitude > 0.01f)
+            {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.clip = walkSound;
+                    audioSource.loop = true;
+                    audioSource.Play();
+                }
+            }
+            else
+            {
+                audioSource.Stop();
+            }
 
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
@@ -105,6 +123,11 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    public void PickUpSound()
+    {
+        pickupAudioSource.Play();
     }
 
     public void SetDialogueUIActive(bool setActive)

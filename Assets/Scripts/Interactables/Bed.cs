@@ -5,7 +5,7 @@ public class Bed : Interactable
     public GameObject cutscenePrefab;
     public Sprite whiteBed;
     public Window window;
-    
+
     private int interactionCount = 0;
     void Update()
     {
@@ -21,8 +21,9 @@ public class Bed : Interactable
                     break;
                 case 1:
                     GetComponent<SpriteRenderer>().sprite = whiteBed;
+                    GetComponent<AudioSource>().Play();
                     PlayerController.Instance.ShowTip("Вот так, теперь в окно", 2f);
-                    window.questIsDone = true;
+                    window.CompleteQuest();
                     break;
                 default:
                     PlayerController.Instance.ShowTip("Наволочку взял, теперь в окно", 3f);

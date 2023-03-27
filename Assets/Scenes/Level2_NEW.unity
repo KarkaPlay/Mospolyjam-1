@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!43 &47530622
+--- !u!43 &187542401
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -409,18 +409,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room
       objectReference: {fileID: 0}
+    - target: {fileID: 6552479020993003370, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 187542401}
     - target: {fileID: 6886660491961220152, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7247673432578085585, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
-      propertyPath: exitCutscene
-      value: 
-      objectReference: {fileID: 1928191224088375632, guid: 8a689f7872c31f042a440436427be3eb, type: 3}
-    - target: {fileID: 7247673432578085585, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
-      propertyPath: openCutscene
-      value: 
-      objectReference: {fileID: 1928191224088375632, guid: 397a5e8f0b9103549945005aeeb3542d, type: 3}
     - target: {fileID: 7262304655711718766, guid: 5c41fb719c959ad4ea2bf218b58ae4c4, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -793,6 +789,7 @@ GameObject:
   - component: {fileID: 1496043539}
   - component: {fileID: 1496043538}
   - component: {fileID: 1496043541}
+  - component: {fileID: 1496043542}
   m_Layer: 0
   m_Name: Rascheska
   m_TagString: Untagged
@@ -916,6 +913,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactedWithHouse: 0
   domik: {fileID: 415004982}
+--- !u!82 &1496043542
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496043537}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7d705b77e0578bf44bc88f49b27e9aaf, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1540444663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,8 +1213,8 @@ MonoBehaviour:
   - {x: 1.9772778, y: -7.883936, z: 0}
   - {x: -0.5500908, y: -8.403973, z: 0}
   m_ShapePathHash: -2001920863
-  m_Mesh: {fileID: 1746268388}
-  m_InstanceId: 90692
+  m_Mesh: {fileID: 1881460338}
+  m_InstanceId: 33352
   m_LocalBounds:
     m_Center: {x: 5.2118864, y: 3.7971687, z: 0}
     m_Extent: {x: 10.069732, y: 12.201141, z: 0}
@@ -1542,7 +1635,7 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!43 &1746268388
+--- !u!43 &1881460338
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

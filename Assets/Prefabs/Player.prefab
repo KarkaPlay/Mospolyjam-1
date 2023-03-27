@@ -146,7 +146,7 @@ Transform:
   m_Children:
   - {fileID: 1082833324859269878}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7406771654287107382
 SpriteRenderer:
@@ -234,8 +234,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 25
+  audioSource: {fileID: 0}
+  walkSound: {fileID: 0}
   rb: {fileID: 0}
   animator: {fileID: 3471032525108624438}
+  allCutscenePrefabs: []
   cutscenePrefab: {fileID: 1928191224088375632, guid: a1da531f9a321ea4da6261b65d75f7bf, type: 3}
   dialoguePanel: {fileID: 0}
   dialogueTextUI: {fileID: 0}

@@ -14,9 +14,6 @@ public class Ending : MonoBehaviour
     IEnumerator WaitForLevel()
     {
         yield return new WaitForSeconds(19);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
-  
-        
-    
 }

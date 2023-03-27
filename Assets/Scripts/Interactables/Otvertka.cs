@@ -20,6 +20,7 @@ public class Otvertka : Interactable
             {
                 PlayerController.Instance.ShowTip("Отлично. То, что нужно", 2);
                 polka.hasOtvertka = true;
+                PlayerController.Instance.PickUpSound();
                 Destroy(gameObject);
             }
         }

@@ -42,6 +42,7 @@ public class Gorshok : QuestObject
                 {
                     PlayerController.Instance.ShowTip("Поливаем...", 2f);
                     window.gameObject.GetComponent<SpriteRenderer>().sprite = windowSprite;
+                    GetComponent<AudioSource>().Play();
                     window.questIsDone = true;
                     GetComponent<SpriteRenderer>().enabled = false;
                     _quest.CompleteQuest();

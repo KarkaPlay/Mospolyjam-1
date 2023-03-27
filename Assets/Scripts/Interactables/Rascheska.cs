@@ -4,7 +4,7 @@ public class Rascheska : Interactable
 {
     public bool interactedWithHouse = false;
     public Domik domik;
-    
+
     void Update()
     {
         if (!playerIsNear) return;
@@ -16,6 +16,8 @@ public class Rascheska : Interactable
             {
                 PlayerController.Instance.ShowTip("...Это похоже на лестницу", 2);
                 domik.interactedWithRascheska = true;
+                //GetComponent<AudioSource>().Play();
+                PlayerController.Instance.PickUpSound();
                 Destroy(gameObject);
             }
             else

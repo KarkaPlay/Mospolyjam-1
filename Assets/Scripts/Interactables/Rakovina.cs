@@ -19,10 +19,12 @@ public class Rakovina : QuestObject
                     {
                         PlayerController.Instance.ShowTip("Наливаем...", 2);
                         _quest.questObjects[0].GetComponent<Gorshok>().leikaHasWater = true;
+                        GetComponent<AudioSource>().Play();
                     }
                     else
+                    {
                         PlayerController.Instance.ShowTip("О, хотя бы вода есть. Правда не понимаю, почему она такая ледяная", 4f);
-                    // TODO: Звук наливания воды
+                    }
                     break;
                 case NPCQuest.QuestState.IsDone:
                     break;

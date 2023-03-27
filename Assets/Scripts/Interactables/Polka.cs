@@ -24,7 +24,7 @@ public class Polka : Interactable
                 GetComponent<SpriteRenderer>().sprite = newSprite;
                 transform.position = new Vector3(-73, 0 ,0);
                 PlayerController.Instance.StartCutscene(cutscenePrefab2);
-                window.questIsDone = true;
+                window.CompleteQuest();
             }
         }
     }

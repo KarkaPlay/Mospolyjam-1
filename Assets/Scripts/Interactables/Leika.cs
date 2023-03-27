@@ -17,6 +17,8 @@ public class Leika : QuestObject
                 case NPCQuest.QuestState.InProcess:
                     PlayerController.Instance.ShowTip("Хм... Может, мне стоит полить то щупальце?", 3f);
                     _quest.questObjects[0].GetComponent<Gorshok>().hasLeika = true;
+                    PlayerController.Instance.PickUpSound();
+                    //GetComponent<AudioSource>().Play();
                     Destroy(gameObject);
                     break;
                 case NPCQuest.QuestState.IsDone:
