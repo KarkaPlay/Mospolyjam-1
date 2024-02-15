@@ -5,7 +5,7 @@ public class CollectLeika : QuestObject
 {
     void Update()
     {
-        if (!playerIsNear) return;
+        if (!CanInteract()) return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {

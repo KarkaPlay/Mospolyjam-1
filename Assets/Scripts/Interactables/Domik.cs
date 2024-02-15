@@ -13,8 +13,7 @@ public class Domik : Interactable
     
     void Update()
     {
-        if (!playerIsNear) return;
-        if (FindObjectOfType<CutScene>()) return;
+        if (!CanInteract()) return;
         
         if (Input.GetKeyDown(KeyCode.E))
         {

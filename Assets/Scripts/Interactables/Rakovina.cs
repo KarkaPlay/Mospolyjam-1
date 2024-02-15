@@ -5,8 +5,8 @@ public class Rakovina : QuestObject
 {
     void Update()
     {
-        if (!playerIsNear) return;
-
+        if (!CanInteract()) return;
+        if (!_quest) return;
         if (Input.GetKeyDown(KeyCode.E))
         {
             switch (_quest.GetQuestState())

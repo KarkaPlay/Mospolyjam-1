@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7855195343547788220
 Transform:
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 0.4
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000ff1600b6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -6805,7 +6805,7 @@ MonoBehaviour:
   - {x: 4.977488, y: -3.6741238, z: 0}
   m_ShapePathHash: -2013746966
   m_Mesh: {fileID: 0}
-  m_InstanceId: 69048
+  m_InstanceId: -2191472
   m_LocalBounds:
     m_Center: {x: 5.021715, y: -3.2659087, z: 0}
     m_Extent: {x: 0.7825873, y: 1.2319168, z: 0}

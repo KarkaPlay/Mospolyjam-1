@@ -9,8 +9,7 @@ public class Bed : Interactable
     private int interactionCount = 0;
     void Update()
     {
-        if (!playerIsNear) return;
-        if (FindObjectOfType<CutScene>()) return;
+        if (!CanInteract()) return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {

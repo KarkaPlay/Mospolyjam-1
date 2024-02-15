@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -13,8 +14,7 @@ public class Gorshok : QuestObject
 
     void Update()
     {
-        if (!playerIsNear) return;
-        if (FindObjectOfType<CutScene>()) return;
+        if (!CanInteract()) return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -45,6 +45,7 @@ public class Gorshok : QuestObject
                     GetComponent<AudioSource>().Play();
                     window.questIsDone = true;
                     GetComponent<SpriteRenderer>().enabled = false;
+                    GetComponent<ShadowCaster2D>().castsShadows = false;
                     _quest.CompleteQuest();
                     break;
                 }

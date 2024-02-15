@@ -11,19 +11,17 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance { get; private set; }
     
 
-    private bool canMove = true;
+    [HideInInspector] public bool canMove = true;
     private float tipFadeTime = 0.5f;
     public float moveSpeed = 5f;
     public AudioSource audioSource;
     public AudioSource pickupAudioSource;
-    public AudioClip pickupSound;
     public AudioClip walkSound;
     public Rigidbody2D rb;
     public Animator animator;
     private Vector2 movement;
-
-    public List<GameObject> allCutscenePrefabs;
-    [FormerlySerializedAs("cutScenePrefab")] public GameObject cutscenePrefab;
+    
+    public GameObject cutscenePrefab;
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueTextUI;
     public TextMeshProUGUI characterNameUI;
@@ -32,25 +30,15 @@ public class PlayerController : MonoBehaviour
     
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         Instance = this;
-        DontDestroyOnLoad(gameObject);
         
         rb = GetComponent<Rigidbody2D>();
-    }
-    
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
     {
+        
+        
         dialoguePanel = CanvasSingleton.Instance.gameObject.transform.GetChild(0).gameObject;
         characterNameUI = dialoguePanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         dialogueTextUI = characterNameUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -61,36 +49,8 @@ public class PlayerController : MonoBehaviour
         {
             StartCutscene(cutscenePrefab);
         }
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        transform.position = new Vector3(-50, 12, 0);
-        switch(scene.name)
-        {
-            case "Level1":
-                StartCutscene(allCutscenePrefabs[0]);
-                break;
-            case "Level2" or "Level2_NEW":
-                StartCutscene(allCutscenePrefabs[1]);
-                break;
-            case "Level3":
-                StartCutscene(allCutscenePrefabs[2]);
-                break;
-            case "Level4":
-                StartCutscene(allCutscenePrefabs[3]);
-                break;
-            case "Level5":
-                StartCutscene(allCutscenePrefabs[4]);
-                break;
-            case "Ending":
-                SetDialogueUIActive(false);
-                StopAllCoroutines();
-                Destroy(CanvasSingleton.Instance.gameObject);
-                Destroy(CameraSingleton.Instance.gameObject);
-                Destroy(gameObject);
-                break;
-        }
+        
+        Progress.Instance.SetNewLevel(Progress.SceneNumberByName[SceneManager.GetActiveScene().name]);
     }
 
     private void Update()
@@ -118,6 +78,22 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
         }
+        else
+        {
+            movement = Vector2.zero;
+            animator.SetFloat("Speed", movement.sqrMagnitude);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+
+        // TODO: Удалить
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     private void FixedUpdate()
@@ -130,9 +106,27 @@ public class PlayerController : MonoBehaviour
         pickupAudioSource.Play();
     }
 
+    public void StopSounds()
+    {
+        foreach (var audioSource in GetComponents<AudioSource>())
+        {
+            audioSource.Pause();
+        }
+    }
+
+    public void ContinueSounds()
+    {
+        foreach (var audioSource in GetComponents<AudioSource>())
+        {
+            audioSource.UnPause();
+        }
+    }
+
     public void SetDialogueUIActive(bool setActive)
     {
-        dialoguePanel.SetActive(setActive);
+        if (dialoguePanel)
+            dialoguePanel.SetActive(setActive);
+        
         canMove = !setActive;
         if (setActive)
             rb.velocity = Vector2.zero;

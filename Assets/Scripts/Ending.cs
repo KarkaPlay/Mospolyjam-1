@@ -5,15 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class Ending : MonoBehaviour
 {
-    public int waitTime;
+    public GameObject ratePanel;
+    
     void Start()
     {
-        StartCoroutine(WaitForLevel());
+        Progress.Instance.SetNewLevel(Progress.SceneNumberByName[SceneManager.GetActiveScene().name]);
     }
 
-    IEnumerator WaitForLevel()
+    public void VideoEnded()
     {
-        yield return new WaitForSeconds(30);
+        ratePanel.SetActive(true);
+    }
+
+    public void GoToMenu()
+    {
         SceneManager.LoadScene(0);
     }
 }

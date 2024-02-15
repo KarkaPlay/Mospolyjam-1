@@ -7,8 +7,8 @@ public class Rascheska : Interactable
 
     void Update()
     {
-        if (!playerIsNear) return;
-        if (FindObjectOfType<CutScene>()) return;
+        if (!CanInteract()) return;
+        //if (FindObjectOfType<CutScene>()) return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
