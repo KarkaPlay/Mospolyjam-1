@@ -28,7 +28,7 @@ public class Window : Interactable
         {
             if (questIsDone)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                Progress.Instance.CompleteLevel();
             }
             else if (exitCutscene)
             {

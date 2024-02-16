@@ -37,8 +37,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        
-        
         dialoguePanel = CanvasSingleton.Instance.gameObject.transform.GetChild(0).gameObject;
         characterNameUI = dialoguePanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         dialogueTextUI = characterNameUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -106,20 +104,10 @@ public class PlayerController : MonoBehaviour
         pickupAudioSource.Play();
     }
 
-    public void StopSounds()
+    public void StopControl()
     {
-        foreach (var audioSource in GetComponents<AudioSource>())
-        {
-            audioSource.Pause();
-        }
-    }
-
-    public void ContinueSounds()
-    {
-        foreach (var audioSource in GetComponents<AudioSource>())
-        {
-            audioSource.UnPause();
-        }
+        canMove = false;
+        rb.velocity = Vector2.zero;
     }
 
     public void SetDialogueUIActive(bool setActive)

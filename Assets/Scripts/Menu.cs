@@ -16,11 +16,6 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void ContinueGame()
-    {
-        SceneManager.LoadScene(Progress.Instance.playerInfo.currentLevel);
-    }
-
     public void ExitGame()
     {
         Debug.Log("Выход из игры");

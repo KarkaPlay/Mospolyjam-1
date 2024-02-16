@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 
 public class Ending : MonoBehaviour
 {
@@ -14,7 +15,19 @@ public class Ending : MonoBehaviour
 
     public void VideoEnded()
     {
-        ratePanel.SetActive(true);
+        if (YandexGame.EnvironmentData.reviewCanShow)
+        {
+            ratePanel.SetActive(true);
+        }
+        else
+        {
+            GoToMenu();
+        }
+    }
+
+    public void OpenRatePanel()
+    {
+        YandexGame.ReviewShow(true);
     }
 
     public void GoToMenu()

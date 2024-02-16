@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using YG;
 
 [System.Serializable]
 public class PlayerInfo
@@ -13,18 +15,9 @@ public class PlayerInfo
 public class Progress : MonoBehaviour
 {
     public PlayerInfo playerInfo;
-    public bool isAuthorized;
-
-    [DllImport("__Internal")]
-    private static extern void SaveExtern(string data);
-    [DllImport("__Internal")]
-    private static extern void LoadExtern();
-    
-    [DllImport("__Internal")]
-    public static extern void ShowAdv();
     
     public static Progress Instance;
-    public static readonly Dictionary<string, int> SceneNumberByName = new Dictionary<string, int>
+    public static readonly Dictionary<string, int> SceneNumberByName = new()
     {
         { "Menu", 0 },
         { "Level1", 1 },
@@ -35,7 +28,7 @@ public class Progress : MonoBehaviour
         { "Ending", 6 }
     };
     
-    public static readonly Dictionary<int, string> SceneNameByNumber = new Dictionary<int, string>
+    public static readonly Dictionary<int, string> SceneNameByNumber = new()
     {
         { 0, "Menu" },
         { 1, "Level1" },
@@ -63,25 +56,31 @@ public class Progress : MonoBehaviour
     private void Start()
     {
 #if UNITY_WEBGL
-        /*if (isAuthorized)
+        if (YandexGame.SDKEnabled)
         {
-            Debug.Log("isAuthorized=true, вызываем LoadExtern");
-            LoadExtern();
+            playerInfo.currentLevel = YandexGame.savesData.currentLevel;
+            StopCoroutine(CompletingLevel());
         }
-        else
-        {
-            Debug.Log("isAuthorized=false, вызываем SetOfflinePlayerInfo");
-            SetOfflinePlayerInfo();
-        }*/
-        
-        if (isAuthorized)
-        {
-            Debug.Log("isAuthorized=true, вызываем LoadExtern");
-            LoadExtern();
-        }
-        
-        ShowAdv();
 #endif
+    }
+
+    public void CompleteLevel()
+    {
+        StartCoroutine(CompletingLevel());
+        
+        SetNewLevel(SceneNumberByName[SceneManager.GetActiveScene().name] + 1);
+    }
+
+    IEnumerator CompletingLevel()
+    {
+        CanvasSingleton.Instance.ShowScreen();
+        
+        yield return new WaitForSeconds(0.5f);
+
+        if (SceneManager.GetActiveScene().buildIndex is 1 or 3)
+        {
+            YandexGame.FullscreenShow();
+        }
     }
 
     public void SetNewLevel(int newLevel)
@@ -91,67 +90,14 @@ public class Progress : MonoBehaviour
             playerInfo.currentLevel = newLevel;
         }
 
-        if (isAuthorized)
-            Save();
-        else
-            SaveOffline();
-
-        if (newLevel is 2 or 4)
-        {
-            ShowAdv();
-        }
+        Save();
     }
 
     public void Save()
     {
 #if UNITY_WEBGL
-        Debug.Log("Сохраняем в облаке...");
-        string jsonString = JsonUtility.ToJson(playerInfo);
-        SaveExtern(jsonString);
-        Debug.Log("Сохранили в облаке!");
+        YandexGame.savesData.currentLevel = playerInfo.currentLevel;
+        YandexGame.SaveProgress();
 #endif
-    }
-
-    public void SaveOffline()
-    {
-        Debug.Log("Сохраняем локально...");
-        PlayerPrefs.SetInt("currentLevel", playerInfo.currentLevel);
-        PlayerPrefs.Save();
-        Debug.Log("Сохранили PlayerPrefs");
-        Debug.Log("PlayerPrefs запомнил уровень: " + PlayerPrefs.HasKey("currentLevel"));
-        Debug.Log("Он равен " + PlayerPrefs.GetInt("currentLevel"));
-        Debug.Log("Сохранили локально!");
-    }
-
-    public void SetPlayerInfo(string value)
-    {
-#if UNITY_WEBGL
-        Debug.Log("Вызван Progress.cs: SetPlayerInfo");
-        playerInfo = JsonUtility.FromJson<PlayerInfo>(value);
-#endif
-    }
-
-    public void SetOfflinePlayerInfo()
-    {
-        Debug.Log("Вызван Progress.cs: SetOfflinePlayerInfo");
-        
-        playerInfo.currentLevel = PlayerPrefs.GetInt("currentLevel");
-        
-        Debug.Log("Загрузили PlayerPrefs");
-        Debug.Log("PlayerPrefs вспомнил уровень: " + PlayerPrefs.HasKey("currentLevel"));
-        Debug.Log("Он равен " + PlayerPrefs.GetInt("currentLevel"));
-    }
-
-    public void SetAuthorized(int authorized)
-    {
-        isAuthorized = authorized == 1;
-        
-        Debug.Log("Запустился SetAuthorized со значением "+authorized);
-
-        if (!isAuthorized)
-        {
-            Debug.Log("isAuthorized=false, вызываем SetOfflinePlayerInfo");
-            SetOfflinePlayerInfo();
-        }
     }
 }
