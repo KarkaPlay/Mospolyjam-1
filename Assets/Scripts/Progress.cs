@@ -39,6 +39,8 @@ public class Progress : MonoBehaviour
         { 6, "Ending" }
     };
 
+    private float adTimer;
+
     private void Awake()
     {
         if (Instance == null)
@@ -59,28 +61,36 @@ public class Progress : MonoBehaviour
         if (YandexGame.SDKEnabled)
         {
             playerInfo.currentLevel = YandexGame.savesData.currentLevel;
-            StopCoroutine(CompletingLevel());
         }
 #endif
     }
 
-    public void CompleteLevel()
+    private void Update()
     {
-        StartCoroutine(CompletingLevel());
-        
-        SetNewLevel(SceneNumberByName[SceneManager.GetActiveScene().name] + 1);
+        adTimer -= Time.deltaTime;
     }
 
-    IEnumerator CompletingLevel()
+    public void CompleteLevel()
     {
-        CanvasSingleton.Instance.ShowScreen();
-        
-        yield return new WaitForSeconds(0.5f);
+        SetNewLevel(SceneNumberByName[SceneManager.GetActiveScene().name] + 1);
 
-        if (SceneManager.GetActiveScene().buildIndex is 1 or 3)
+        if (SceneManager.GetActiveScene().buildIndex == 5)
         {
-            YandexGame.FullscreenShow();
+            SceneManager.LoadScene(6);
         }
+        else
+        {
+            CanvasSingleton.Instance.ShowScreen();
+            if (SceneManager.GetActiveScene().buildIndex is 1 or 3)
+            {
+                Invoke(nameof(ShowAd), 0.5f);
+            }
+        }
+    }
+
+    private void ShowAd()
+    {
+        YandexGame.FullscreenShow();
     }
 
     public void SetNewLevel(int newLevel)

@@ -808,7 +808,7 @@ Transform:
   - {fileID: 8949037105319395229}
   - {fileID: 7875003740072506667}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2794014343444825638
 AudioSource:
@@ -2896,9 +2896,29 @@ PrefabInstance:
       propertyPath: m_Vertices.Array.data[155].position.y
       value: 8.5427
       objectReference: {fileID: 0}
+    - target: {fileID: 2149468202621062193, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914663053994478154, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891090212500073067, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113314061447526201, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5595582913316601465, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
       propertyPath: m_Name
       value: Furniture
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866201936417983272, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7026182795961183455, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
       propertyPath: m_NormalMapQuality
@@ -4483,11 +4503,11 @@ PrefabInstance:
     - target: {fileID: 7165161983259897692, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
       propertyPath: exitCutscene
       value: 
-      objectReference: {fileID: 1928191224088375632, guid: 8a689f7872c31f042a440436427be3eb, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7165161983259897692, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
       propertyPath: openCutscene
       value: 
-      objectReference: {fileID: 1928191224088375632, guid: 397a5e8f0b9103549945005aeeb3542d, type: 3}
+      objectReference: {fileID: 1928191224088375632, guid: a1da531f9a321ea4da6261b65d75f7bf, type: 3}
     - target: {fileID: 7165161983259897692, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
       propertyPath: breakingSound
       value: 
@@ -6292,6 +6312,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9127973075474423002, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3995332487343901119, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
     - {fileID: 5840578466817250473, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
@@ -6426,8 +6450,8 @@ BoxCollider2D:
   m_Offset: {x: 1.2888851, y: 0.9820068}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.6171875, y: 9.7734375}
+    pivot: {x: 0.55949616, y: 0.13566487}
+    oldSize: {x: 7.6171875, y: 9.774436}
     newSize: {x: 7.6171875, y: 9.7734375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6492,11 +6516,11 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8636279, y: -3.3311384}
+  m_Offset: {x: 0.8636279, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.3984375, y: 11.6640625}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 11.402077, y: 11.6640625}
     newSize: {x: 11.3984375, y: 11.6640625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6561,11 +6585,11 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -5.4498343}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.3984375, y: 11.6640625}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 11.402077, y: 11.6640625}
     newSize: {x: 11.3984375, y: 11.6640625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6627,11 +6651,11 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.95273113, y: -6.954931}
+  m_Offset: {x: -0.95273113, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.328125, y: 14.1171875}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 8.328125, y: 14.119205}
     newSize: {x: 8.328125, y: 14.1171875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6696,7 +6720,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.109375, y: 14.03125}
+    oldSize: {x: 7.1115417, y: 14.03125}
     newSize: {x: 7.109375, y: 14.03125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6742,18 +6766,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -4.035178}
+  m_Offset: {x: 3.6094322, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 13.671875, y: 9.21875}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 13.681159, y: 9.21875}
     newSize: {x: 17.5, y: 11.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.671875, y: 4.3366847}
+  m_Size: {x: 6.4530106, y: 4.336685}
   m_EdgeRadius: 0
 --- !u!114 &4418012353880650977
 MonoBehaviour:
@@ -6792,23 +6816,23 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
-  - {x: 4.936582, y: -2.4307113, z: 0}
-  - {x: 4.26015, y: -2.488642, z: 0}
-  - {x: 4.239128, y: -2.033992, z: 0}
-  - {x: 5.665558, y: -2.8700707, z: 0}
-  - {x: 5.7917156, y: -2.1890879, z: 0}
-  - {x: 5.780918, y: -3.087246, z: 0}
-  - {x: 5.7724156, y: -3.6950536, z: 0}
-  - {x: 5.7979703, y: -4.0783753, z: 0}
-  - {x: 5.8043027, y: -4.4536557, z: 0}
-  - {x: 4.9978952, y: -4.4978256, z: 0}
-  - {x: 4.977488, y: -3.6741238, z: 0}
-  m_ShapePathHash: -2013746966
+  - {x: 4.9365816, y: 2.1691926, z: 0}
+  - {x: 4.260149, y: 2.1112618, z: 0}
+  - {x: 4.2391276, y: 2.5659127, z: 0}
+  - {x: 5.6655574, y: 1.7298332, z: 0}
+  - {x: 5.791715, y: 2.410816, z: 0}
+  - {x: 5.7809176, y: 1.5126569, z: 0}
+  - {x: 5.772415, y: 0.90484935, z: 0}
+  - {x: 5.79797, y: 0.52152747, z: 0}
+  - {x: 5.804302, y: 0.14624703, z: 0}
+  - {x: 4.997895, y: 0.1020781, z: 0}
+  - {x: 4.9774876, y: 0.9257791, z: 0}
+  m_ShapePathHash: 1580161594
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2191472
+  m_InstanceId: -831642
   m_LocalBounds:
-    m_Center: {x: 5.021715, y: -3.2659087, z: 0}
-    m_Extent: {x: 0.7825873, y: 1.2319168, z: 0}
+    m_Center: {x: 5.021715, y: 1.3339953, z: 0}
+    m_Extent: {x: 0.7825873, y: 1.2319173, z: 0}
 --- !u!4 &6200640880598362307 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5905967667652072782, guid: da330a1e19eb86b4e841ba7ba03b3e34, type: 3}
@@ -6869,10 +6893,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -3.9347765}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 14.546875, y: 8.515625}
     newSize: {x: 14.546875, y: 8.515625}
     adaptiveTilingThreshold: 0.5
@@ -6924,7 +6948,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000071525574, y: -0.0000009536743}
+  m_Offset: {x: -0.00000071525574, y: 0}
   m_Size: {x: 27.25, y: 11.289062}
   m_Direction: 1
 --- !u!114 &7514221694790563633
@@ -7140,11 +7164,11 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2.8815978}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.1796875, y: 7.265625}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 9.185185, y: 7.265625}
     newSize: {x: 11.75, y: 9.3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

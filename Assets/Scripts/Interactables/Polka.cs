@@ -21,6 +21,7 @@ public class Polka : Interactable
             else
             {
                 GetComponent<SpriteRenderer>().sprite = newSprite;
+                GetComponent<SpriteRenderer>().sortingOrder = -1;
                 transform.position = new Vector3(-73, 0 ,0);
                 PlayerController.Instance.StartCutscene(cutscenePrefab2);
                 window.CompleteQuest();

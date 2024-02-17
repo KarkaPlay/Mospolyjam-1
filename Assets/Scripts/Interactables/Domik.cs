@@ -10,6 +10,7 @@ public class Domik : Interactable
     public Sprite newWindowSprite;
     public Sprite newDomik;
     public SpriteRenderer windowSR;
+    public Window window;
     
     void Update()
     {
@@ -37,6 +38,7 @@ public class Domik : Interactable
             PlayerController.Instance.StartCutscene(cutscenePrefab2);
             GetComponent<SpriteRenderer>().sprite = newDomik;
             windowSR.sprite = newWindowSprite;
+            window.CompleteQuest();
         }
         else
         {
